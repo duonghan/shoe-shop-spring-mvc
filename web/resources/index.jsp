@@ -5,8 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsf/core" prefix="c" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -20,20 +19,26 @@
         </script>
 
         <!-- //for-mobile-apps -->
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/fasthover.css" rel="stylesheet" type="text/css" media="all" />-->
+        
+        <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet" type="text/css" media="all" />
+        <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet" type="text/css" media="all" />
+        <link href="<c:url value="/resources/css/fasthover.css" />" rel="stylesheet" type="text/css" media="all" />
+        
         <!-- js -->
-        <script src="js/jquery.min.js"></script>
+        <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
         <!-- //js -->
         <!-- countdown -->
-        <link rel="stylesheet" href="css/jquery.countdown.css" />
+<!--        <link rel="stylesheet" href="css/jquery.countdown.css" />-->
+        <link href="<c:url value="/resources/css/jquery.countdown.css" />" />
         <!-- //countdown -->
         <!-- cart -->
-        <script src="js/simpleCart.min.js"></script>
+        <script src="<c:url value="/resources/js/simpleCart.min.js"/>"></script>
         <!-- cart -->
         <!-- for bootstrap working -->
-        <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+        <script src="<c:url value="/resources/js/bootstrap-3.1.1.min.js"/>"></script>
         <!-- //for bootstrap working -->
         <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>

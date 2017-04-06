@@ -4,6 +4,8 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+<!--    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
+    <mvc:annotation-driven />-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

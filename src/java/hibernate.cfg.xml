@@ -49,8 +49,8 @@ Contributor(s):
     <mapping resource="model/Account.hbm.xml"/>
     <mapping resource="model/Product.hbm.xml"/>
     <mapping resource="model/Category.hbm.xml"/>
-    <mapping resource="model/Transaction.hbm.xml"/>
-    <mapping resource="model/Orders.hbm.xml"/>
+    <mapping resource="model/Transaction_.hbm.xml"/>
+    <mapping resource="model/Order.hbm.xml"/>
     <mapping resource="model/User.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
