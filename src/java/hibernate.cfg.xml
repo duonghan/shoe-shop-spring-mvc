@@ -43,8 +43,14 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shoe_store1?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">123456</property>
+    <mapping resource="model/Account.hbm.xml"/>
+    <mapping resource="model/Product.hbm.xml"/>
+    <mapping resource="model/Category.hbm.xml"/>
+    <mapping resource="model/Transaction.hbm.xml"/>
+    <mapping resource="model/Orders.hbm.xml"/>
+    <mapping resource="model/User.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
