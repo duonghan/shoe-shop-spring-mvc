@@ -40,17 +40,21 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shoe_store1?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">123456</property>
-    <mapping resource="model/Account.hbm.xml"/>
-    <mapping resource="model/Product.hbm.xml"/>
-    <mapping resource="model/Category.hbm.xml"/>
-    <mapping resource="model/Transaction_.hbm.xml"/>
-    <mapping resource="model/Order.hbm.xml"/>
-    <mapping resource="model/User.hbm.xml"/>
-  </session-factory>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shoe_store1?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.password">123456</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="model.Account"/>
+        <mapping class="model.Product"/>
+        <mapping class="model.Category"/>
+        <mapping class="model.Transaction_"/>
+        <mapping class="model.Order"/>
+        <mapping class="model.User"/>
+    </session-factory>
 </hibernate-configuration>

@@ -33,7 +33,7 @@ public class Product  implements java.io.Serializable {
      private String description;
      
      @Column(name = "discount")
-     private String discount;
+     private float discount;
      
      @Column(name = "created")
      private Date created;
@@ -44,7 +44,7 @@ public class Product  implements java.io.Serializable {
     public Product() {
     }
 
-    public Product(String name, int price, String description, String discount, Date created, String image) {
+    public Product(String name, int price, String description, float discount, Date created, String image) {
        this.name = name;
        this.price = price;
        this.description = description;
@@ -81,11 +81,11 @@ public class Product  implements java.io.Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getDiscount() {
+    public float getDiscount() {
         return this.discount;
     }
     
-    public void setDiscount(String discount) {
+    public void setDiscount(float discount) {
         this.discount = discount;
     }
     public Date getCreated() {

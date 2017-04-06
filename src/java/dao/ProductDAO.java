@@ -17,7 +17,7 @@ public interface ProductDAO {
     public boolean insertProduct(Product product);
     public boolean updateProduct(Product product);
     public boolean deleteProduct(Product product);
-    public Product findByID(int productID);
-    public ArrayList<Product> getAll();
+    public Product findProduct(String name);
+    public ArrayList<Product> getlstProduct();
     
 }
