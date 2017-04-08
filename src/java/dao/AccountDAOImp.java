@@ -83,28 +83,44 @@ public class AccountDAOImp implements AccountDAO {
     }
 
     @Override
-    public boolean checkAccount(Account account) {
+    public boolean checkAccount(String username, String password) {
         List<Account> lstAccount = new ArrayList<>();
         try {
-            transaction = session.beginTransaction();
-            Query query = session.createQuery("from Account where username =:user and password :pass");
-            query.setParameter("user", account.getUsername());
-            query.setParameter("pass", account.getPassword());
+            session.beginTransaction();
+            Query query = session.createQuery("from Account where username =:user and password =:pass");
+            query.setParameter("user", username);
+            query.setParameter("pass", password);
             lstAccount = query.list();
             if (lstAccount.size() == 1) {
                 return true;
             }
+            session.getTransaction().commit();
             return false;
         } catch (Exception ex) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
+            
             
             ex.printStackTrace();
-        } finally{
-            session.flush();
-            session.close();
-        }
+        } 
+        
+        return false;
+    }
+
+    @Override
+    public boolean checkAdmin(String username) {
+        List<Account> lstAccount = new ArrayList<>();
+        try {
+            session.beginTransaction();
+            Query query = session.createQuery("from Account where username =:user and role = 1");
+            query.setParameter("user", username);
+            lstAccount = query.list();
+            if (lstAccount.size() == 1) {
+                return true;
+            }
+            session.getTransaction().commit();
+            return false;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } 
         
         return false;
     }

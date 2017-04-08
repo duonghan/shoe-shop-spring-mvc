@@ -15,5 +15,6 @@ public interface AccountDAO {
     public boolean insertAccount(Account account);
     public boolean updateAccount(Account account);
     public boolean deleteAccount(Account account);
-    public boolean checkAccount(Account account);
+    public boolean checkAccount(String username, String password);
+    public boolean checkAdmin(String username);
 }

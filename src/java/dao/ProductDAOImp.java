@@ -67,19 +67,13 @@ public class ProductDAOImp implements ProductDAO {
     public boolean deleteProduct(Product product) {
 
         try {
-            transaction = session.beginTransaction();
+           session.beginTransaction();
             session.delete(product);
-            transaction.commit();
+            session.getTransaction().commit();
             return true;
         } catch (Exception ex) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             ex.printStackTrace();
-        } finally {
-            session.flush();
-            session.close();
-        }
+        } 
         return false;
     }
 
@@ -128,16 +122,6 @@ public class ProductDAOImp implements ProductDAO {
         return null;
     }
     
-    public static void main(String[] args) {
-        Date date = new Date();
-        Product product1 = new Product("nike air max", 200000, "Giay the thao gianh cho nam", 0 , date, "/img.jpg");
-        
-        ProductDAOImp pd = new ProductDAOImp();
-        
-        if (pd.insertProduct(product1)) {
-            System.out.println("Thêm nhân viên thành công!");
-        }
-        
-    }
+ 
 
 }
