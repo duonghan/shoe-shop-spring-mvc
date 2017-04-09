@@ -46,18 +46,19 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String email = (String) request.getParameter("username");
+        String user = (String) request.getParameter("username");
         String pass = (String) request.getParameter("password");
 
         // Đã login rồi thì chuyển tiếp sang /WEB-INF/views/userInfoView.jsp
-        if (check.checkAccount(email, pass)) {
-            request.setAttribute("Email", email);
+        if (check.checkAccount(user, pass)) {
+            request.setAttribute("User", user);
             request.setAttribute("Password", pass);
-            if (check.checkAdmin(email)) {
+            session.setAttribute("User", user);
+            if (check.checkAdmin(user)) {
                 RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/index.jsp");
                 dispatcher.forward(request, response);
             } else {
-                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/pages/success.jsp");
+                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/pages/index.jsp");
                 dispatcher.forward(request, response);
             }
 

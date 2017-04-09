@@ -11,41 +11,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-            function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <!-- //for-mobile-apps -->
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/fasthover.css" rel="stylesheet" type="text/css" media="all" />
-        <!-- js -->
-        <script src="js/jquery.min.js"></script>
-        <!-- //js -->
-        <!-- countdown -->
-        <link rel="stylesheet" href="css/jquery.countdown.css" />
-        <!-- //countdown -->
-        <!-- cart -->
-        <script src="js/simpleCart.min.js"></script>
-        <!-- cart -->
-        <!-- for bootstrap working -->
-        <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-        <!-- //for bootstrap working -->
-        <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-        <!-- start-smooth-scrolling -->
-        <script type="text/javascript">
-jQuery(document).ready(function ($) {
-    $(".scroll").click(function (event) {
-        event.preventDefault();
-        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
-    });
-});
-        </script>
-        <!-- //end-smooth-scrolling -->
+
     </head>
     <body>
-
+        <%
+            if (session.getAttribute("User") == null) {
+        %>
         <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
              aria-hidden="true">
+           
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -99,13 +73,13 @@ jQuery(document).ready(function ($) {
                                 </div>
                                 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
                                 <script type="text/javascript">
-$(document).ready(function () {
-    $('#horizontalTab').easyResponsiveTabs({
-        type: 'default', //Types: default, vertical, accordion           
-        width: 'auto', //auto or any width like 600px
-        fit: true   // 100% fit in a container
-    });
-});
+                                    $(document).ready(function () {
+                                        $('#horizontalTab').easyResponsiveTabs({
+                                            type: 'default', //Types: default, vertical, accordion           
+                                            width: 'auto', //auto or any width like 600px
+                                            fit: true   // 100% fit in a container
+                                        });
+                                    });
                                 </script>
                                 <div id="OR" class="hidden-xs">
                                     hoặc</div>
@@ -129,16 +103,36 @@ $(document).ready(function () {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
+               <%
+                }
+            %>
+            
         <script>
             $('#myModal88').modal('show');
         </script>
         <div class="header">
             <div class="container">
+                <%
+                    if (session.getAttribute("User") == null) {
+
+
+                %>
                 <div class="w3l_login">
                     <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
                 </div>
+                <%                } else {
+                %>
+
+                <div class="w3l_login">
+                    <img src="#"/>
+                    <h5 style="color: pink;">${User}</h5>
+                </div>
+                <%
+                    }
+                %>
+
                 <div class="w3l_logo">
                     <h1><a href="index.html">DN Sport Shoe<span>For Shoe Lovers</span></a></h1>
                 </div>

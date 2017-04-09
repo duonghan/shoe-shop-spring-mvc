@@ -87,21 +87,19 @@ public class AccountDAOImp implements AccountDAO {
         List<Account> lstAccount = new ArrayList<>();
         try {
             session.beginTransaction();
-            Query query = session.createQuery("from Account where username =:user and password =:pass");
+            Query query = session.createQuery("from Account where username =:user and password =:pass ");
             query.setParameter("user", username);
             query.setParameter("pass", password);
             lstAccount = query.list();
             if (lstAccount.size() == 1) {
                 return true;
             }
-            session.getTransaction().commit();
             return false;
         } catch (Exception ex) {
-            
-            
+
             ex.printStackTrace();
-        } 
-        
+        }
+
         return false;
     }
 
@@ -109,8 +107,7 @@ public class AccountDAOImp implements AccountDAO {
     public boolean checkAdmin(String username) {
         List<Account> lstAccount = new ArrayList<>();
         try {
-            session.beginTransaction();
-            Query query = session.createQuery("from Account where username =:user and role = 1");
+            Query query = session.createQuery("from Account where username =:user and role =true");
             query.setParameter("user", username);
             lstAccount = query.list();
             if (lstAccount.size() == 1) {
@@ -120,8 +117,8 @@ public class AccountDAOImp implements AccountDAO {
             return false;
         } catch (Exception ex) {
             ex.printStackTrace();
-        } 
-        
+        }
+
         return false;
     }
 
